@@ -10,7 +10,10 @@ RUN apk --update add git ffmpeg flac lame && \
     mv target/subsonic-6.0-standalone.tar.gz /opt/subsonic && \
     cd /opt/subsonic && \
     tar zxvf subsonic-6.0-standalone.tar.gz && \
-    chown -R nobody:users /opt/subsonic && \
+    mkdir -p /var/subsonic && \
+    chown -R nobody:users /var/subsonic && \
+    mkdir -p /var/playlists && \
+    chown -R nobody:users /var/playlists && \
     mkdir -p /opt/subsonic/transcode && \
     ln -s /usr/bin/lame /opt/subsonic/transcode/lame && \
     ln -s /usr/bin/ffmpeg /opt/subsonic/transcode/ffmpeg && \
