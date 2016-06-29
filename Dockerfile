@@ -18,8 +18,10 @@ RUN apk --update add git ffmpeg flac lame && \
     ln -s /usr/bin/lame /opt/subsonic/transcode/lame && \
     ln -s /usr/bin/ffmpeg /opt/subsonic/transcode/ffmpeg && \
     rm -rf /tmp/* && \
+    rm -rf /root/.m2 && \
     apk del git && \
-    rm -rf /var/cache/apk/*
+    rm -rf /var/cache/apk/* && \
+    adduser nobody users
 
 USER nobody
 VOLUME ["/var/subsonic"]
